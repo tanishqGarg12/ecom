@@ -4,10 +4,9 @@ import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { Button } from "../styles/Button";
-import { useAuth0 } from "@auth0/auth0-react";
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-  // const { loginWithRedirect,logout,isAuthenticated } = useAuth0();
+
 
 
   const Nav = styled.nav`
@@ -163,7 +162,7 @@ const Nav = () => {
     }
   }
   `;
-  const { loginWithRedirect,logout,isAuthenticated } = useAuth0();
+  // const { loginWithRedirect,logout,isAuthenticated } = useAuth0();
   return (
     <Nav>
       <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -201,18 +200,11 @@ const Nav = () => {
             </NavLink>
 
           </li>
-{
-  isAuthenticated ?
-        <li>
-        <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-      Log Out
-    </Button>
-        </li>
-        :
+
         <li>
         <Button>Log In</Button>
         </li>
-}
+
 
 
           <li>
